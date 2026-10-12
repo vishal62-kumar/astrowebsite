@@ -45,13 +45,43 @@
         </ul>
 
         <div class="nav-actions">
-          <a href="tel:+917300004325" class="phone-pill">
+          <a href="tel:+917300004325" class="phone-pill" aria-label="Call Hanish Bagga">
             <i data-lucide="phone" style="width:14px; height:14px;"></i>
             <span>+91 73000 04325</span>
           </a>
-          <button class="btn btn-primary" onclick="openBookingModal('General Consultation')">
+          <button class="btn btn-primary nav-book-btn" onclick="openBookingModal('General Consultation')">
             <span>Book Consultation</span>
             <i data-lucide="arrow-right" style="width:16px; height:16px;"></i>
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileNav()">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#about" class="mobile-nav-link" onclick="closeMobileNav()">About Hanish</a></li>
+          <li><a href="#services" class="mobile-nav-link" onclick="closeMobileNav()">Services</a></li>
+          <li><a href="#benefits" class="mobile-nav-link" onclick="closeMobileNav()">Benefits</a></li>
+          <li><a href="#process" class="mobile-nav-link" onclick="closeMobileNav()">Process</a></li>
+          <li><a href="#reviews" class="mobile-nav-link" onclick="closeMobileNav()">Reviews</a></li>
+          <li><a href="#courses" class="mobile-nav-link" onclick="closeMobileNav()">Courses</a></li>
+          <li><a href="#faqs" class="mobile-nav-link" onclick="closeMobileNav()">FAQs</a></li>
+        </ul>
+        <div class="mobile-nav-actions">
+          <a href="tel:+917300004325" class="btn btn-secondary mobile-call-btn">
+            <i data-lucide="phone" style="width:18px; height:18px;"></i>
+            <span>Call +91 73000 04325</span>
+          </a>
+          <button class="btn btn-primary" onclick="closeMobileNav(); openBookingModal('Mobile Nav');" style="width:100%;">
+            <i data-lucide="calendar" style="width:18px; height:18px;"></i>
+            <span>Book 1-on-1 Consultation</span>
           </button>
         </div>
       </div>
@@ -65,7 +95,7 @@
         
         <!-- Left: Headline & Ad Value Props -->
         <div class="hero-content">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 8px;">
+          <div class="hero-meta-row">
             <div class="badge">
               <i data-lucide="sparkles" style="width:14px; height:14px;"></i>
               <span>Trusted Life Guidance • No Blind Guesswork</span>
@@ -968,7 +998,7 @@
             <input type="text" class="form-input" placeholder="Your Full Name" required name="fullName">
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="modal-two-col">
             <div class="form-group">
               <label class="form-label">Phone / WhatsApp *</label>
               <input type="tel" class="form-input" placeholder="+91 98765 43210" required name="phone">
@@ -979,7 +1009,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="modal-two-col">
             <div class="form-group">
               <label class="form-label">Date of Birth *</label>
               <input type="date" class="form-input" required name="dob">
@@ -1074,6 +1104,22 @@
       </div>
     </div>
   </footer>
+
+  <!-- Sticky Mobile Bottom CTA Bar -->
+  <aside class="mobile-bottom-bar" aria-label="Mobile quick actions">
+    <a href="tel:+917300004325" class="mobile-bar-btn mobile-bar-call">
+      <i data-lucide="phone" style="width:18px; height:18px;"></i>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/917300004325?text=Hello%20Hanish%20Bagga%20team%2C%20I%20would%20like%20to%20inquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" class="mobile-bar-btn mobile-bar-whatsapp">
+      <i data-lucide="message-circle" style="width:18px; height:18px;"></i>
+      <span>WhatsApp</span>
+    </a>
+    <button class="mobile-bar-btn mobile-bar-book" onclick="openBookingModal('Mobile Sticky Bar')">
+      <i data-lucide="calendar" style="width:18px; height:18px;"></i>
+      <span>Book Session</span>
+    </button>
+  </aside>
 
   <!-- External JavaScript File -->
   <script src="script.js"></script>

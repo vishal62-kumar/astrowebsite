@@ -120,3 +120,54 @@ function handleModalSubmit(e) {
   closeBookingModal();
   e.target.reset();
 }
+
+// Mobile Navigation Toggle
+function toggleMobileNav() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const toggleBtn = document.getElementById('mobileMenuToggle');
+  if (!drawer || !toggleBtn) return;
+
+  const isOpen = drawer.classList.contains('open');
+  if (isOpen) {
+    closeMobileNav();
+  } else {
+    drawer.classList.add('open');
+    toggleBtn.classList.add('active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileNav() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const toggleBtn = document.getElementById('mobileMenuToggle');
+  if (drawer) {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+  }
+  if (toggleBtn) {
+    toggleBtn.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+  // Restore scrolling only if modal is not open
+  const modal = document.getElementById('bookingModal');
+  if (!modal || !modal.classList.contains('open')) {
+    document.body.style.overflow = '';
+  }
+}
+
+// Close drawer on resize to larger screen
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 968) {
+    closeMobileNav();
+  }
+});
+
+// Update key listener to close mobile menu as well
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeBookingModal();
+    closeMobileNav();
+  }
+});
